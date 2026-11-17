@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fffdf8">
+  <title>Royal Desires</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><span class="crown">♛</span><span>ROYAL <b>DESIRES</b><small>WHERE WISHES BECOME REALITY</small></span></a>
+  <div id="userBar" class="userbar"></div>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">UNA COMUNIDAD DE GENEROSIDAD</div>
+    <h1>Un deseo puede<br><em>cambiar una vida.</em></h1>
+    <p>Comparte ese objeto que sueñas tener o descubre el deseo de alguien a quien puedas ayudar.</p>
+    <a class="gold-btn" href="#wishes">Explorar deseos <span>✦</span></a>
+  </section>
+
+  <section id="auth" class="auth card">
+    <div class="section-kicker">BIENVENIDO A ROYAL DESIRES</div>
+    <h2>Entra a tu espacio</h2>
+    <p class="muted">Crea una cuenta o inicia sesión para publicar y ayudar.</p>
+    <div class="tabs"><button id="loginTab" class="tab active">Iniciar sesión</button><button id="signupTab" class="tab">Crear cuenta</button></div>
+    <form id="authForm">
+      <label>Correo electrónico<input id="email" type="email" autocomplete="email" required placeholder="tu@correo.com"></label>
+      <label>Contraseña<input id="password" type="password" minlength="8" autocomplete="current-password" required placeholder="Mínimo 8 caracteres"></label>
+      <label id="nameField" class="hidden">Nombre o apodo<input id="displayName" maxlength="50" placeholder="¿Cómo te llamamos?"></label>
+      <button class="gold-btn full" id="authSubmit">Iniciar sesión</button>
+      <p id="authMessage" class="message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="account" class="hidden">
+    <div class="welcome-row"><div><div class="section-kicker">TU ESPACIO</div><h2>Hola, <span id="helloName">amiga/o</span> ✨</h2><p class="muted">Puedes pedir un deseo y también ayudar a cumplir el de alguien más.</p></div></div>
+    <div class="grid">
+      <section class="card">
+        <div class="section-kicker">COMPARTE TU ILUSIÓN</div><h2>Publica un deseo</h2>
+        <form id="wishForm">
+          <label>¿Qué objeto deseas?<input id="wishTitle" maxlength="100" required placeholder="Ej. Una computadora para estudiar"></label>
+          <label>Categoría<select id="wishCategory"><option>Electrónica</option><option>Estudio</option><option>Ropa y calzado</option><option>Hogar</option><option>Juguetes y hobbies</option><option>Otro objeto material</option></select></label>
+          <label>Cuéntanos más<textarea id="wishDescription" maxlength="500" placeholder="Detalles del objeto (no incluyas datos privados)"></textarea></label>
+          <button class="gold-btn full">Publicar deseo</button><p id="wishMessage" class="message"></p>
+        </form>
+      </section>
+      <section class="card safety"><div class="section-kicker">UNA COMUNIDAD SEGURA</div><h2>Generosidad con cuidado</h2><ul><li>Publica solo deseos materiales.</li><li>No publiques direcciones, documentos ni datos bancarios.</li><li>No pagues dinero para recibir un regalo.</li><li>La persona que publicó confirma cuando recibe el objeto.</li></ul><p class="muted tiny">Los datos de contacto no se muestran en el catálogo público. La comunicación debe comenzar mediante una solicitud de ayuda dentro de la plataforma.</p></section>
+    </div>
+  </section>
+
+  <section id="wishes" class="wish-section">
+    <div class="section-kicker">DESCUBRE CÓMO PUEDES AYUDAR</div>
+    <div class="title-row"><h2>Deseos de la comunidad</h2><button id="refresh" class="outline-btn">Actualizar ↻</button></div>
+    <div id="wishFeed" class="wish-grid"><div class="empty">Conecta tu cuenta para cargar los deseos de la comunidad.</div></div>
+  </section>
+  <section id="myRequests" class="hidden wish-section"><div class="section-kicker">TUS SOLICITUDES</div><h2>Personas que quieren ayudar</h2><div id="requestsFeed" class="wish-grid"></div></section>
+</main>
+<footer><span class="crown">♛</span><p>ROYAL DESIRES · Un deseo. Una oportunidad. Una realidad.</p><small>Plataforma en desarrollo. Actúa con prudencia y protege tu información.</small></footer>
+<script src="app.js"></script>
+</body></html>

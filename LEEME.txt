@@ -1,0 +1,62 @@
+ROYAL DESIRES — PRIMERA BASE FUNCIONAL
+======================================
+
+Qué incluye
+- Diseño adaptable en blanco y dorado.
+- Registro e inicio de sesión con correo y contraseña mediante Supabase Auth.
+- Publicación de deseos materiales.
+- Catálogo compartido para usuarios autenticados.
+- Solicitudes privadas de interés: el contacto personal NO se publica en el catálogo.
+- El dueño del deseo confirma cuando recibió el objeto y se marca como cumplido.
+- Reglas iniciales de seguridad (Row Level Security) en la base de datos.
+
+IMPORTANTE
+Este paquete es el inicio funcional, pero no se conecta hasta que crees tu proyecto Supabase
+y pegues sus datos públicos de conexión en app.js. No pongas nunca una service_role key
+en el navegador. Usa solamente la Project URL y la publishable/anon key.
+
+PASO 1 — Crear la base de datos
+1. Entra a https://supabase.com/ y crea una cuenta.
+2. Crea un proyecto llamado Royal Desires.
+3. Guarda la contraseña de la base de datos en un lugar seguro.
+4. Abre SQL Editor > New query.
+5. Copia todo el contenido de supabase_schema.sql, pégalo y pulsa Run.
+
+PASO 2 — Activar autenticación
+1. En Supabase abre Authentication > Providers.
+2. Comprueba que Email esté habilitado.
+3. En Authentication > URL Configuration, cuando publiques el sitio agrega la URL de tu web
+   en Site URL y Redirect URLs.
+4. Para pruebas, puedes dejar la confirmación por correo activada. Los usuarios deberán
+   confirmar su correo antes de iniciar sesión, según la configuración del proyecto.
+
+PASO 3 — Conectar la página
+1. En Supabase abre Project Settings > API (o Connect, según la interfaz).
+2. Copia la Project URL.
+3. Copia la publishable key (o anon/public key heredada).
+4. Abre app.js y reemplaza:
+   PEGA_AQUI_TU_PROJECT_URL
+   PEGA_AQUI_TU_PUBLISHABLE_OR_ANON_KEY
+5. Guarda el archivo.
+
+PASO 4 — Probar
+Abre index.html desde un servidor local o súbelo a un hosting estático (por ejemplo Netlify).
+Registra dos cuentas distintas:
+- Cuenta A: publica un deseo.
+- Cuenta B: entra y pulsa “Quiero ayudar”.
+- Cuenta A: revisa “Personas que quieren ayudar”.
+- Cuando el objeto se haya entregado, Cuenta A pulsa “Confirmar que lo recibí”.
+
+LIMITACIONES DE ESTA PRIMERA ENTREGA
+- La solicitud de ayuda todavía no incluye chat interno ni intercambio de datos de contacto.
+- No incluye verificación de identidad, moderación avanzada, reportes ni panel de administración.
+- No hay pagos ni compras dentro de la plataforma.
+- La confirmación de entrega depende de la persona que publicó el deseo.
+- Antes de abrirla al público, conviene añadir moderación, bloqueo/reporte, límites contra spam
+  y un proceso seguro para comunicación. No publiques teléfonos ni correos en los deseos.
+
+Archivos
+index.html          Pantalla y estructura.
+styles.css          Diseño blanco y dorado.
+app.js              Registro, inicio de sesión y operaciones.
+supabase_schema.sql Tablas y políticas de seguridad.
